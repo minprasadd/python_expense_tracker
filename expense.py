@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 CLI Expense Tracker with JSON storage.
 Usage: python expense_tracker.py [command] [arguments]
@@ -25,8 +24,6 @@ CATEGORY_ICONS = {
 }
 
 
-# ── Data helpers ──────────────────────────────────────────────────────────────
-
 def load_data():
     if not os.path.exists(DATA_FILE):
         return {"expenses": [], "budget": None}
@@ -52,8 +49,6 @@ def parse_month(expenses, month=None):
     m = month or current_month()
     return [e for e in expenses if e["date"].startswith(m)], m
 
-
-# ── Commands ──────────────────────────────────────────────────────────────────
 
 def add_expense(args):
     """
@@ -240,8 +235,6 @@ def delete_expense(args):
         save_data(data)
         print(f"🗑️  Deleted expense [{expense_id}].")
 
-
-# ── CLI entry point ───────────────────────────────────────────────────────────
 
 HELP = """
 💰 CLI Expense Tracker
